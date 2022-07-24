@@ -1,0 +1,107 @@
+.poke-bg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+}
+
+.principal {
+    height: 660px;
+    width: 440px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    right: 4px;
+    bottom: 4px;
+}
+
+.display {
+    height: 220px;
+    width: 300px;
+    background-image: url("../../assets/img/bg_pokemon.png");
+    background-position: bottom;
+    background-size: 900px 660px;
+    border: 2px solid #9d2517;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50px;
+    left: 40px;
+}
+
+.poke-img {
+    width: 260px;
+    position: relative;
+}
+
+.errorSearch {
+    position: absolute;
+    font-weight: bold;
+    top: 280px;
+    left: 40px;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.search input[type="text"] {
+    position: relative;
+    width: 260px;
+    height: 30px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.search input[type="submit"] {
+    position: relative;
+    width: 80px;
+    height: 40px;
+    font-weight: bold;
+    background: rgb(192, 192, 192);
+    border-radius: 8px;
+    border: 2px solid #9d2517;
+}
+
+.search input[type="submit"]:hover {
+    cursor: pointer;
+}
+
+.search input[type="submit"]:active {
+    background: rgb(202, 115, 115);
+    color: #fff;
+}
+
+.data-stats {
+    height: 200px;
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-align: left;
+    font-weight: bold;
+}
+
+.data-stats tr {
+    display: flex;
+    justify-content: end;
+}
+
+.data-stats tr td:first-child {
+    text-align: left;
+    width: 100px;
+}
+
+.data-stats tr td:last-child {
+    text-align: right;
+    width: 60px;
+}

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 .poke-bg {
     display: flex;
     align-items: center;
@@ -14,6 +16,7 @@
     position: relative;
     right: 4px;
     bottom: 4px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .display {
@@ -37,7 +40,7 @@
     position: relative;
 }
 
-.errorSearch {
+.error-search {
     position: absolute;
     font-weight: bold;
     top: 280px;
@@ -57,6 +60,7 @@
     height: 30px;
     border-radius: 5px;
     margin-right: 10px;
+    padding-left: 10px;
 }
 
 .search input[type="submit"] {
@@ -74,21 +78,54 @@
 }
 
 .search input[type="submit"]:active {
-    background: rgb(202, 115, 115);
+    background: #ca7373;
     color: #fff;
 }
 
+.data-stats,
+.data-info {
+    border: 2px solid #9d2517;
+    border-radius: 8px;
+}
+
+.data-info {
+    position: absolute;
+    font-weight: bold;
+    text-align: left;
+    width: 360px;
+    height: 100px;
+    top: 370px;
+    left: 40px;
+    color: #fff;
+}
+
+.info-title,
+.st-title {
+    position: absolute;
+    top: -15px;
+    left: 10px;
+    background: #DE3D2B;
+    width: max-content;
+    text-align: center;
+}
+
+.info-txt {
+    padding: 10px;
+}
+
+
 .data-stats {
-    height: 200px;
-    width: 250px;
+    height: 140px;
+    width: 360px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     position: absolute;
-    bottom: 0;
-    left: 0;
+    bottom: 20px;
+    left: 40px;
     text-align: left;
     font-weight: bold;
+    color: #fff;
 }
 
 .data-stats tr {

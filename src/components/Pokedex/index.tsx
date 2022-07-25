@@ -3,7 +3,6 @@ import { PokemonClient } from "pokenode-ts";
 import { useState } from "react";
 import pokedex_bg from "../../assets/img/Pokedex.svg";
 import pokeball_sprite from "../../assets/img/pokeball_sprite.png";
-import { Pokemon } from "../../models/pokemon";
 import "./styles.css";
 
 function Pokedex() {
@@ -13,18 +12,17 @@ function Pokedex() {
 
     const [SearchTerm, setSearchTerm] = useState(search);
     const [PokeInfo, setPokeInfo] = useState(baseInfo);
-    const [Pokemon, setPokemon] = useState<Pokemon>([]);
 
     function SearchPokemon() {
-        const sprite = document.querySelector(".poke-img");
-        const hp = document.querySelector(".hp_stats");
-        const atk = document.querySelector(".atk_stats");
-        const def = document.querySelector(".def_stats");
-        const satk = document.querySelector(".sa_stats");
-        const sdef = document.querySelector(".sd_stats");
-        const spd = document.querySelector(".spd_stats");
-        const errorTxt = document.querySelector(".error-txt");
-        const tableType = document.querySelector(".type-table");
+        const sprite = document.querySelector(".poke-img") as HTMLImageElement;
+        const hp = document.querySelector(".hp_stats") as HTMLElement;
+        const atk = document.querySelector(".atk_stats") as HTMLElement;
+        const def = document.querySelector(".def_stats") as HTMLElement;
+        const satk = document.querySelector(".sa_stats") as HTMLElement;
+        const sdef = document.querySelector(".sd_stats") as HTMLElement;
+        const spd = document.querySelector(".spd_stats") as HTMLElement;
+        const errorTxt = document.querySelector(".error-txt") as HTMLElement;
+        const tableType = document.querySelector(".type-table") as HTMLElement;
 
         (async () => {
             const api = new PokemonClient();
@@ -32,18 +30,19 @@ function Pokedex() {
             await api
                 .getPokemonByName(SearchTerm.toLowerCase())
                 .then((data) => {
-                    setPokemon(data);
-                    hp.innerText = data.stats[0].base_stat;
-                    atk.innerText = data.stats[1].base_stat;
-                    def.innerText = data.stats[2].base_stat;
-                    satk.innerText = data.stats[3].base_stat;
-                    sdef.innerText = data.stats[4].base_stat;
-                    spd.innerText = data.stats[5].base_stat;
-                    sprite.src = data.sprites.front_default;
+                    console.log(hp);
+                    hp != null ? hp.innerText = String(data.stats[0].base_stat) : null;
+                    atk != null ? atk.innerText = String(data.stats[1].base_stat) : null;
+                    def != null ? def.innerText = String(data.stats[2].base_stat) : null;
+                    satk != null ? satk.innerText = String(data.stats[3].base_stat) : null;
+                    sdef != null ? sdef.innerText = String(data.stats[4].base_stat) : null;
+                    spd != null ? spd.innerText = String(data.stats[5].base_stat) : null;
+                    sprite != null ? sprite.src = String(data.sprites.front_default) : null;
+                    sprite != null ? sprite.alt = String(data.name) : null;
 
-                    tableType.innerHTML = '';
+                    tableType != null ? tableType.innerHTML = '' : null;
                     data.types.forEach(element => {
-                        tableType.innerHTML += '<tr>' + element.type.name.toUpperCase() + '</tr>'
+                        tableType != null ? tableType.innerHTML += '<tr>' + element.type.name.toUpperCase() + '</tr>' : null;
                     });
 
                     axios.get(`${url}/pokemon-species/${data.id}`)
@@ -51,10 +50,10 @@ function Pokedex() {
                             setPokeInfo(response.data.flavor_text_entries[9].flavor_text);
                         })
 
-                    document.querySelector(".error-txt").innerText = "";
+                    errorTxt != null ? errorTxt.innerText = "" : null;
                 })
                 .catch((error) => {
-                    errorTxt.innerText = 'Pokemon not found :D';
+                    errorTxt != null ? errorTxt.innerText = 'Pokemon not found :D' : null;
                     console.log(error.message);
                 }
                 );
@@ -66,7 +65,7 @@ function Pokedex() {
             <img src={pokedex_bg} className="poke-bg" alt="background_pokedex" />
             <div className="principal">
                 <div className="display">
-                    <img src={pokeball_sprite} className="poke-img" alt={Pokemon.name} />
+                    <img src={pokeball_sprite} className="poke-img" alt={baseInfo} />
                 </div>
                 <div className="error-search">
                     <p className="error-txt"></p>

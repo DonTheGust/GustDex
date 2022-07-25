@@ -25,7 +25,7 @@
     background-image: url("../../assets/img/bg_pokemon.png");
     background-position: bottom;
     background-size: 900px 660px;
-    border: 2px solid #9d2517;
+    border: 2px solid #202020;
     border-radius: 5px;
     display: flex;
     align-items: center;
@@ -61,6 +61,7 @@
     border-radius: 5px;
     margin-right: 10px;
     padding-left: 10px;
+    border: 2px solid #9d2517;
 }
 
 .search input[type="submit"] {
@@ -142,3 +143,5 @@
     text-align: right;
     width: 60px;
 }
+
+@media (max-width: 991px) {}

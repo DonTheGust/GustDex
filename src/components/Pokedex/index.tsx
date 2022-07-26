@@ -13,6 +13,10 @@ function Pokedex() {
     const [SearchTerm, setSearchTerm] = useState(search);
     const [PokeInfo, setPokeInfo] = useState(baseInfo);
 
+    function capitalizeFirstLetter(string: string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
     function SearchPokemon() {
         const sprite = document.querySelector(".poke-img") as HTMLImageElement;
         const hp = document.querySelector(".hp_stats") as HTMLElement;
@@ -22,6 +26,7 @@ function Pokedex() {
         const sdef = document.querySelector(".sd_stats") as HTMLElement;
         const spd = document.querySelector(".spd_stats") as HTMLElement;
         const errorTxt = document.querySelector(".error-txt") as HTMLElement;
+        const infoTitle = document.querySelector(".info-title") as HTMLElement;
         const tableType = document.querySelector(".type-table") as HTMLElement;
 
         (async () => {
@@ -37,6 +42,7 @@ function Pokedex() {
                     satk != null ? satk.innerText = String(data.stats[3].base_stat) : null;
                     sdef != null ? sdef.innerText = String(data.stats[4].base_stat) : null;
                     spd != null ? spd.innerText = String(data.stats[5].base_stat) : null;
+                    infoTitle != null ? infoTitle.innerHTML = 'Info - ' + capitalizeFirstLetter(String(data.name)) + ' Nº' + String(data.id) : null;
                     sprite != null ? sprite.src = String(data.sprites.front_default) : null;
                     sprite != null ? sprite.alt = String(data.name) : null;
 

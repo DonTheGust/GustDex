@@ -1,0 +1,18 @@
+.git-footer {
+    text-align: center;
+    position: absolute;
+    bottom: 80px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.git-footer a {
+    text-decoration: none;
+    color: #fff;
+}
+
+@media (max-width: 991px) {
+    .git-footer {
+        font-size: 14px;
+    }
+}
